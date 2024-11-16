@@ -1,0 +1,6 @@
+﻿services:
+  oncallprober:
+    image: oncallprober
+    build:
+      context: .
+      dockerfile: Dockerfile
