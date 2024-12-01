@@ -64,7 +64,7 @@ internal sealed class EventsService
     private string GetAuthorizationHeader(string endpoint, HttpMethod httpMethod, string body)
     {
         var strMethod = httpMethod.Method.ToUpper();
-        var window = DateTimeOffset.Now.ToUnixTimeSeconds() / 30;
+        var window = DateTimeOffset.UtcNow.ToUnixTimeSeconds() / 30;
 
         var value = $"{window} {strMethod} {endpoint} {body}";
         var signature = _signatureEncoder.ComputeSignature(value);
